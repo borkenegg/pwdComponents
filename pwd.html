@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="pwd.js"></script>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    }
+    .pwd-noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    }
+    #container{
+        width: 100vw;
+        height: 100vh;
+    }
+    input{
+        width: 98vw;
+        height: 50px;
+        font-size: 30px;
+    }
+    #content{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 10px;
+    }
+    .pwd-item-box{
+    text-align: center;
+    border: 1px solid #999;
+    border-radius: 3px;
+    height: 38px;
+    line-height: 38px;
+    }
+    .pwd-item{
+    display: inline-block;
+    width: 16%;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    border-right: 1px solid #999;
+    font-size: 52px;
+    font-weight: bold;
+    color: #666;
+    }
+    .pwd-item:last-child{
+    border-right: none;
+    }
+    .pwd-keyborad{
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0
+    }
+    .pwd-keyborad-item{
+    display: inline-block;
+    width: 33%;
+    height: 45px;
+    list-style-type: none;
+    background: #fff;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    text-align: center;
+    line-height: 45px;
+    font-size: 24px;
+    color: grey;
+    }
+    .pwd-keyborad-active{
+    background: #e4e7ec;
+    }
+    .pwd-side-bottom{
+    background: #e4e7ec;
+    }
+    .pwd-del-icon{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+    line-height: 20px;
+    text-align: center;
+    color: grey;
+    background: white;
+    font-size: 16px;
+    }
+    .pwd-del-icon::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-color: transparent white transparent transparent;
+    border-style: solid;
+    }
+    img{
+        width:100%;
+        height:50vh;
+    }
+    </style>
+</head>
+<body>
+<div id="container">
+    <label for="cash"></label><input id="cash" type="text" placeholder="输入金额"/>
+    <div id="content" class="pwd"></div>
+
+</div>
+</body>
+<script>
+    var config = {
+        main:"container",
+        container:"content",
+        width:"100%",
+        height:"50vh",
+        background:"#f7f9f8",
+        borderColor:"#8e908f",
+        fontColor:"#717171",
+        pwd_len:6
+    };
+    var input = document.getElementById("cash");
+    var content = document.getElementById("content");
+    var container = document.getElementById("container");
+    input.addEventListener("focus",function(){
+        content.innerHTML="";
+        Pwd.init(config);
+    });
+//    container.addEventListener("click",function(e){
+//        e=e||event;
+//        var active = e.target;
+//        if(active.className!=="pwd-keyborad-item"&&active.className!=="pwd"&&active.nodeName!=="SPAN"&&active.nodeName!=="INPUT"){
+//            content.innerHTML="";
+//            content.style="";
+//        }
+//    });
+
+
+
+</script>
+</html>
